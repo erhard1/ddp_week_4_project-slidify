@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DDP Week 4 Project - Spline Fit App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="DDP Week 4 Project - Spline Fit App">
+  <meta name="author" content="David Erhart">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  
+  <hgroup class="auto-fadein">
+    <h1>DDP Week 4 Project - Spline Fit App</h1>
+    <h2>produced using slidify</h2>
+    <p>David Erhart<br/>2021-12-13</p>
+  </hgroup>
+  
+  <article></article>  
+  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  
+  <hgroup>
+    <h2>Background</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>This presentation is in fulfillment of the Developing Data Products Project to develop and publish an application using the Shiny package and to &#39;pitch&#39; the app in a Slidify presentation.</p>
+
+<p>The app can be found on the ShinyApps site at: <a href="https://sxibbs-david-erhart.shinyapps.io/week_04_project/?_ga=2.137299504.1642642637.1639430115-1723247215.1639267126">week_04_project</a></p>
+
+<p>The application must include the following:</p>
+
+<ul>
+<li>Some form of input (widget: textbox, radio button, checkbox, ...)</li>
+<li>Some operation on the ui input in sever.R</li>
+<li>Some reactive output displayed as a result of server calculations</li>
+<li>Enough documentation so that a novice user could use your application</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  
+  <hgroup>
+    <h2>Motivation &amp; Concept</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>I was interested in extending the &#39;Reactive Horsepower&#39; example that was covered in Week 2. Specifically, I wanted to add the option to pick different spline points and compare the spline model fit with the simple linear model.</p>
+
+<p>In order to assess the model fit (for both models), I used the root mean square error (RMSE) metric from the lm summary method.</p>
+
+<p>By moving the spline point slider back and forth, the user can visually see the change in the piece-wise fit to the mtcars hp &amp; mpg data.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  
+  <hgroup>
+    <h2>Mechanics</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>1 The user can pick the mpg value they want for an hp prediction</p>
+
+<p>2 The user can pick different spline points (a green diamond on the plot)</p>
+
+<p>3 The plot dynamically updates with changes in either slider input</p>
+
+<p>4 The model prediction and the model RMSE values are presented</p>
+
+<p>5 The difference between the two RMSEs is shown (red when Model 1 is a poorer fit)</p>
+
+<p><img src="shiny_app_screenshot.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="50%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  
+  <hgroup>
+    <h2>Future Embellishments</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p>In it&#39;s current form the app is pretty simple. If I had more time to spend improving it I would try the following:</p>
+
+<ul>
+<li><p>Add the option to pick the number of spline points from a menu</p>
+
+<ul>
+<li>This would involve creating individual sliders for each point</li>
+<li>The sliders would have to adjust to ranges reflecting the locations of the points</li>
+</ul></li>
+<li><p>Add a gauge in the side panel to show the delta between the RSMEs of Model 1 and Model 2</p>
+
+<ul>
+<li>This would involve using Shiny Dashboard to get that functionality</li>
+</ul></li>
+<li><p>Output the minimum RSME for each model so the user can tell when they have found the best fit</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background'>
+         1
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Motivation &amp; Concept'>
+         2
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Mechanics'>
+         3
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Future Embellishments'>
+         4
+      </a>
+    </li>
+    
+    </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
